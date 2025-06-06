@@ -28,7 +28,7 @@ jobs:
       - run: npm run test:docs
       - uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.RELEASE_TOKEN }}
           publish_dir: ./docs/test
           destination_dir: ${{ github.sha }}
           keep_files: true

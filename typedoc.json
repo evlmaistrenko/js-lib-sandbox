@@ -1,0 +1,5 @@
+{
+  "out": "./docs/typedoc",
+  "entryPoints": ["./src/hooks/index.ts"],
+  "excludeExternals": true
+}

@@ -36,26 +36,42 @@ jobs:
             } else {
               core.setOutput('skip', false);
             }
-      - name: Skip job if PR has release label
-        if: steps.pr.outputs.skip == 'true'
-        run: |
-          echo "Skipping job because PR has label 'release'"
-          exit 0
+
       - uses: actions/checkout@v4
+        if: steps.pr.outputs.skip != 'true'
+
       - uses: actions/setup-node@v4
+        if: steps.pr.outputs.skip != 'true'
         with:
           node-version: latest
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm i -D @rollup/rollup-linux-x64-gnu
-      - run: npm run test:docs
-      - uses: peaceiris/actions-gh-pages@v4
+
+      - name: Install dependencies
+        if: steps.pr.outputs.skip != 'true'
+        run: npm ci
+
+      - name: Install rollup binary
+        if: steps.pr.outputs.skip != 'true'
+        run: npm i -D @rollup/rollup-linux-x64-gnu
+
+      - name: Run test:docs
+        if: steps.pr.outputs.skip != 'true'
+        run: npm run test:docs
+
+      - name: Deploy test docs to GitHub Pages
+        if: steps.pr.outputs.skip != 'true'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.RELEASE_TOKEN }}
           publish_dir: ./docs/test
           destination_dir: ${{ github.sha }}
           keep_files: true
-      - run: npx -y wait-on https://evlmaistrenko.github.io/js-lib-sandbox/${{ github.sha }}/storybook && npm test
+
+      - name: Wait for Storybook and run tests
+        if: steps.pr.outputs.skip != 'true'
+        run: |
+          npx wait-on https://evlmaistrenko.github.io/js-lib-sandbox/${{ github.sha }}/storybook --timeout 60000 --log
+          npm test
 
   release-please:
     runs-on: ubuntu-latest

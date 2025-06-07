@@ -1,3 +1,3 @@
 export function useFoo(arg: string): string {
-  return arg;
+  return arg + " bar";
 }

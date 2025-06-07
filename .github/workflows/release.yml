@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   test:
+    if: ${{ !contains(toJson(github.event.pull_request.labels), '"name":"release"') }}
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.52.0-noble

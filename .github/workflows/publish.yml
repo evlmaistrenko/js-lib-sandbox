@@ -16,9 +16,8 @@ jobs:
         with:
           node-version: latest
           cache: "npm"
-      - run: |
-          rm -rf package-lock.json
-          npm install
+      - run: npm i -g @rollup/rollup-linux-x64-gnu
+      - run: npm ci
       - run: npm run docs
       - uses: peaceiris/actions-gh-pages@v4
         with:

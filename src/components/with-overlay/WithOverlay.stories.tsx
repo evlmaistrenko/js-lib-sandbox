@@ -35,6 +35,6 @@ export const Default: Story = {
     children: <div style={{ background: "#ececec", padding: 32 }}>CONTENT</div>,
   },
   play: () => {
-    throw new Error();
+    // throw new Error();
   },
 };

@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: latest
           cache: "npm"
-      - run: npm i -g @rollup/rollup-linux-x64-gnu
       - run: npm ci
+      - run: npm i -D @rollup/rollup-linux-x64-gnu
       - run: npm run docs
       - uses: peaceiris/actions-gh-pages@v4
         with:

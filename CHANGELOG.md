@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/evlmaistrenko/js-lib-sandbox/compare/react-lib-v1.0.1...react-lib-v1.1.0) (2025-06-07)
+
+
+### Features
+
+* foo ([1f26418](https://github.com/evlmaistrenko/js-lib-sandbox/commit/1f2641800464c2e73375491d300b4ab63783453b))
+
 ## [1.0.1](https://github.com/evlmaistrenko/js-lib-sandbox/compare/react-lib-v1.0.0...react-lib-v1.0.1) (2025-06-07)
 
 

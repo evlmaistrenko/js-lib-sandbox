@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/evlmaistrenko/js-lib-sandbox/compare/react-lib-v1.1.0...react-lib-v1.1.1) (2025-06-07)
+
+
+### Bug Fixes
+
+* bar ([5aa96f3](https://github.com/evlmaistrenko/js-lib-sandbox/commit/5aa96f3477cfadbc8d1831d0c903a67b871cd71c))
+
 ## [1.1.0](https://github.com/evlmaistrenko/js-lib-sandbox/compare/react-lib-v1.0.1...react-lib-v1.1.0) (2025-06-07)
 
 
